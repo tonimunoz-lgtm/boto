@@ -1,3 +1,6 @@
+# ARCHIVO 13: .gitignore
+# (Copia y pega esto en un archivo llamado ".gitignore" en la raíz)
+
 node_modules/
 .env.local
 .env.*.local
@@ -8,3 +11,7 @@ build/
 dist/
 .DS_Store
 .env
+.vercel
+*.swp
+*.swo
+*~
