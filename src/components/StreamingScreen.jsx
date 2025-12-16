@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Volume2 } from 'lucide-react';
 import { listenToGroups, setGameState, listenToClaims, updateClaimStatus } from '../services/firebaseService';
 
@@ -34,21 +34,11 @@ export function StreamingScreen() {
       oscillator.connect(gain);
       gain.connect(audioContext.destination);
       
-      // Primera frecuencia
       oscillator.frequency.value = 800;
       gain.gain.setValueAtTime(0.5, audioContext.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.3);
-
-      // Segunda frecuencia
-      const osc2 = audioContext.createOscillator();
-      osc2.connect(gain);
-      osc2.frequency.value = 1000;
-      gain.gain.setValueAtTime(0.5, audioContext.currentTime + 0.3);
-      gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.6);
-      osc2.start(audioContext.currentTime + 0.3);
-      osc2.stop(audioContext.currentTime + 0.6);
     } catch (err) {
       console.log('Audio no disponible');
     }
@@ -75,7 +65,6 @@ export function StreamingScreen() {
       <div className="max-w-7xl mx-auto">
         <h1 className="text-5xl font-bold mb-8 text-center">📡 CENTRO DE STREAMING</h1>
 
-        {/* Sección de grupos registrados */}
         <div className="bg-gray-700 rounded-lg p-6 mb-8 shadow-lg">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
             👥 Grupos Registrados
@@ -91,14 +80,12 @@ export function StreamingScreen() {
                   className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-4 text-center hover:from-blue-700 hover:to-blue-800 transition transform hover:scale-105 shadow-md"
                 >
                   <p className="text-lg font-bold">{group.name}</p>
-                  <p className="text-xs opacity-75 mt-1">Registrado</p>
                 </div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Botón de inicio */}
         {!gameStarted ? (
           <button
             onClick={handleStartGame}
@@ -113,7 +100,6 @@ export function StreamingScreen() {
           </div>
         )}
 
-        {/* Historial de verificaciones */}
         {verifiedClaims.length > 0 && (
           <div className="bg-gray-700 rounded-lg p-6">
             <h3 className="text-xl font-bold mb-4">📋 Historial de Reclamaciones</h3>
@@ -141,7 +127,6 @@ export function StreamingScreen() {
         )}
       </div>
 
-      {/* Alerta de reclamación */}
       {showNotification && currentClaim && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
           <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl shadow-2xl p-12 max-w-md w-full text-center animate-pulse">
