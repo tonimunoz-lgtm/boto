@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AlertCircle, Volume2 } from 'lucide-react';
 import { listenToGroups, setGameState, listenToClaims, updateClaimStatus } from '../services/firebaseService';
 
+
 export function StreamingScreen() {
   const [groups, setGroups] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
