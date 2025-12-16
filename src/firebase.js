@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
-
 // Tu configuración de Firebase (CORRECTA)
 const firebaseConfig = {
   apiKey: "AIzaSyDWuvGrjArZMWr2U3VRNM4SAdwbVDGTG3Q",
