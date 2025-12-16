@@ -2,20 +2,20 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
-// REEMPLAZA ESTO CON TU CONFIGURACIÓN DE FIREBASE
+// Tu configuración de Firebase (CORRECTA)
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "tu-proyecto.firebaseapp.com",
-  databaseURL: "https://tu-proyecto-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "tu-proyecto",
-  storageBucket: "tu-proyecto.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef123456"
+  apiKey: "AIzaSyDWuvGrjArZMWr2U3VRNM4SAdwbVDGTG3Q",
+  authDomain: "quinto-streaming.firebaseapp.com",
+  databaseURL: "https://quinto-streaming-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "quinto-streaming",
+  storageBucket: "quinto-streaming.firebasestorage.app",
+  messagingSenderId: "1080141028662",
+  appId: "1:1080141028662:web:4b3b548c949ca30c80a797"
 };
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
-// Obtener referencias a servicios
+// Obtener referencias a los servicios que necesitamos
 export const database = getDatabase(app);
 export const auth = getAuth(app);
